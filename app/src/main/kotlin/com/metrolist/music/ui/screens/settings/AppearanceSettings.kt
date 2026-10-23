@@ -1017,9 +1017,17 @@ fun AppearanceSettings(
                             description = { Text(stringResource(R.string.theme_desc)) },
                             onClick = { navController.navigate("settings/appearance/theme") },
                         ),
-                    )
-                },
-        )
+                    )   
+                    add(
+                        Material3SettingsItem(
+                            icon = painterResource(R.drawable.palette),
+                            title = { Text("Gaya Tampilan") },
+                            description = { Text("Editorial atau Liquid (belum aktif)") },
+                            onClick = { },
+                        ),
+                  )
+             },
+        ) 
 
         Spacer(modifier = Modifier.height(27.dp))
 
