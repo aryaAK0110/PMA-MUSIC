@@ -107,7 +107,7 @@ private val leadDeveloper = Contributor(
     roleRes = R.string.credits_lead_developer,
     githubHandle = "aryaAK0110",
     polygon = MaterialShapes.Cookie9Sided,
-    favoriteSongVideoId = "Mh2JWGWvy_Y"
+    favoriteSongVideoId = "FS71iw8LALc"
 )
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -197,7 +197,7 @@ private fun DeveloperSocials(
             Icon(painterResource(R.drawable.language), contentDescription = null)
         }
         FilledTonalButton(
-            onClick = { uriHandler.openUri("https://github.com/mostafaalagamy") },
+            onClick = { uriHandler.openUri("https://github.com/aryaAK0110") },
             modifier = Modifier.weight(1f).height(48.dp)
         ) {
             Icon(painterResource(R.drawable.github), contentDescription = null)
@@ -270,7 +270,7 @@ fun AboutScreen(
                         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
                     Text(
-                        text = "PMA MUSIC",
+                        text = "PROJECT MUSIC ARYA",
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Black,
                         color = MaterialTheme.colorScheme.onSurface,
