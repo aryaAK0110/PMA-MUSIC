@@ -253,7 +253,7 @@ fun AboutScreen(
                     .padding(24.dp)
             ) {
                 Image(
-                    painter = painterResource(R.drawable.small_icon),
+                    painter = painterResource(R.drawable.pma_mono),
                     contentDescription = stringResource(R.string.metrolist),
                     colorFilter = ColorFilter.tint(
                         color = MaterialTheme.colorScheme.primary,
