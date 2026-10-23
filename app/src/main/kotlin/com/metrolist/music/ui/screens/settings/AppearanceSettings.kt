@@ -1890,3 +1890,4 @@ enum class LyricsPosition {
     CENTER,
     RIGHT,
 }
+val LiquidStyleKey = booleanPreferencesKey("liquidStyle")
