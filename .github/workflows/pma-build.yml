@@ -11,6 +11,10 @@ jobs:
           java-version: "21"
           distribution: temurin
       - run: chmod +x gradlew
+      - name: Create debug keystore
+        run: |
+          mkdir -p ~/.android
+          keytool -genkey -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
       - run: ./gradlew --console=plain assembleFossDebug --no-daemon
         env:
           METROLIST_APPLICATION_ID: com.pma.music
