@@ -270,7 +270,7 @@ fun AboutScreen(
                         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
                     Text(
-                        text = metrolistName,
+                        text = "PMA MUSIC",
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Black,
                         color = MaterialTheme.colorScheme.onSurface,
@@ -384,13 +384,39 @@ fun AboutScreen(
                 }
                 
                 Spacer(Modifier.height(24.dp))
-                
+                        ElevatedCard(
+            shape = RoundedCornerShape(32.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Text(
+                    text = "PMA MUSIC",
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Black,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "Dimodifikasi oleh Project Musik Arya",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = "Berdasarkan Metrolist (GPL-3.0)",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
                 DeveloperSocials(uriHandler)
                 
                 Spacer(Modifier.height(16.dp))
                 
                 Button(
-                    onClick = { uriHandler.openUri("https://buymeacoffee.com/mostafaalagamy") },
+                    onClick = { uriHandler.openUri("https://sociabuzz.com/aditya0110/tribe") },
                     modifier = Modifier.fillMaxWidth(),
                     shape = CircleShape,
                     colors = ButtonDefaults.buttonColors(
