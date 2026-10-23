@@ -157,6 +157,7 @@ fun AppearanceSettings(
             SelectedThemeColorKey,
             defaultValue = DefaultThemeColor.toArgb(),
         )
+    val (liquidStyle, onLiquidStyleChange) = rememberPreference(LiquidStyleKey, defaultValue = false)
     // Check if user has selected a custom color (not the default/dynamic color)
     val isUsingCustomColor = selectedThemeColorInt != DefaultThemeColor.toArgb()
 
