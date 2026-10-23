@@ -19,6 +19,9 @@ import androidx.compose.runtime.saveable.SaverScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import com.metrolist.music.constants.AppearanceStyleKey
+import com.metrolist.music.utils.rememberPreference
+import androidx.compose.material3.Typography
 import androidx.palette.graphics.Palette
 import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
@@ -35,6 +38,7 @@ fun MetrolistTheme(
     content: @Composable () -> Unit,
 ) {
     val context = LocalContext.current
+    val (appearanceStyle) = rememberPreference(AppearanceStyleKey, defaultValue = "EDITORIAL")
     // Determine if system dynamic colors should be used (Android S+ and default theme color)
     val useSystemDynamicColor = (themeColor == DefaultThemeColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
 
@@ -64,6 +68,7 @@ fun MetrolistTheme(
     // Use standard MaterialTheme instead of MaterialExpressiveTheme
     MaterialTheme(
         colorScheme = colorScheme,
+        typography = if (appearanceStyle == "EDITORIAL") serifTypography(Typography()) else Typography(),
         content = content,
     )
 }
