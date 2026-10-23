@@ -108,6 +108,12 @@ private val leadDeveloper = Contributor(
     githubHandle = "aryaAK0110",
     polygon = MaterialShapes.Cookie9Sided,
     favoriteSongVideoId = "FS71iw8LALc"
+) 
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+private val collaborators = listOf(
+    Contributor(name = "Adriel O'Connel", roleRes = R.string.credits_collaborator, githubHandle = "adrielGGmotion", sponsorUrl = "https://github.com/sponsors/adrielGGmotion", polygon = MaterialShapes.Cookie4Sided, favoriteSongVideoId = "m2zUrruKjDQ"),
+    Contributor(name = "Nyx", roleRes = R.string.credits_collaborator, githubHandle = "nyxiereal", sponsorUrl = "https://github.com/sponsors/nyxiereal", polygon = MaterialShapes.Cookie12Sided, favoriteSongVideoId = "zselaN6zPXw"),
 )
 
 private val communityLinks = listOf(
