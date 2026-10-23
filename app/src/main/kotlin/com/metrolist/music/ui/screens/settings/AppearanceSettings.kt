@@ -55,6 +55,7 @@ import androidx.navigation.NavController
 import com.metrolist.music.LocalPlayerAwareWindowInsets
 import com.metrolist.music.R
 import com.metrolist.music.constants.ChipSortTypeKey
+import com.metrolist.music.constants.AppearanceStyleKey
 import com.metrolist.music.constants.CropAlbumArtKey
 import com.metrolist.music.constants.DefaultOpenTabKey
 import com.metrolist.music.constants.DensityScale
@@ -158,6 +159,7 @@ fun AppearanceSettings(
             defaultValue = DefaultThemeColor.toArgb(),
         )
     val (liquidStyle, onLiquidStyleChange) = rememberPreference(LiquidStyleKey, defaultValue = false)
+        val (appearanceStyle, onAppearanceStyleChange) = rememberPreference(AppearanceStyleKey, defaultValue = "EDITORIAL")
     // Check if user has selected a custom color (not the default/dynamic color)
     val isUsingCustomColor = selectedThemeColorInt != DefaultThemeColor.toArgb()
 
@@ -1022,8 +1024,8 @@ fun AppearanceSettings(
                         Material3SettingsItem(
                             icon = painterResource(R.drawable.palette),
                             title = { Text("Gaya Tampilan") },
-                            description = { Text("Editorial atau Liquid (belum aktif)") },
-                            onClick = { },
+                            description = { Text(if (appearanceStyle == "LIQUID") "Liquid" else "Editorial") },
+                            onClick = { onAppearanceStyleChange(if (appearanceStyle == "LIQUID") "EDITORIAL" else "LIQUID") },
                         ),
                   )
              },
