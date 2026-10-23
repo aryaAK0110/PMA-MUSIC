@@ -107,8 +107,8 @@ private val leadDeveloper = Contributor(
     roleRes = R.string.credits_lead_developer,
     githubHandle = "aryaAK0110",
     polygon = MaterialShapes.Cookie9Sided,
-    favoriteSongVideoId = "FS71iw8LALc"
-) 
+    favoriteSongVideoId = "Mh2JWGWvy_Y"
+)
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 private val collaborators = listOf(
@@ -197,13 +197,13 @@ private fun DeveloperSocials(
             Icon(painterResource(R.drawable.language), contentDescription = null)
         }
         FilledTonalButton(
-            onClick = { uriHandler.openUri("https://github.com/aryaAK0110") },
+            onClick = { uriHandler.openUri("https://github.com/mostafaalagamy") },
             modifier = Modifier.weight(1f).height(48.dp)
         ) {
             Icon(painterResource(R.drawable.github), contentDescription = null)
         }
         FilledTonalButton(
-            onClick = { uriHandler.openUri("https://www.instagram.com/aak_01100?cplk=MXFzeTVyb3FmanJ3bA==")},
+            onClick = { uriHandler.openUri("https://www.instagram.com/aak_01100?mdxt=MXFzeTVyb3FmanJ3bA==") },
             modifier = Modifier.weight(1f).height(48.dp)
         ) {
             Icon(painterResource(R.drawable.instagram), contentDescription = null)
@@ -329,6 +329,34 @@ fun AboutScreen(
 
         Spacer(Modifier.height(24.dp))
 
+                ElevatedCard(
+            shape = RoundedCornerShape(32.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Text(
+                    text = "PMA MUSIC",
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Black,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "Dimodifikasi oleh Project Musik Arya",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = "Berdasarkan Metrolist (GPL-3.0)",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
+
         // Lead Developer Hero Card
         ElevatedCard(
             shape = RoundedCornerShape(32.dp),
@@ -384,33 +412,7 @@ fun AboutScreen(
                 }
                 
                 Spacer(Modifier.height(24.dp))
-                        ElevatedCard(
-            shape = RoundedCornerShape(32.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(modifier = Modifier.padding(24.dp)) {
-                Text(
-                    text = "PMA MUSIC",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Black,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Text(
-                    text = "Dimodifikasi oleh Project Musik Arya",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = "Berdasarkan Metrolist (GPL-3.0)",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-
-        Spacer(Modifier.height(24.dp))
+                
                 DeveloperSocials(uriHandler)
                 
                 Spacer(Modifier.height(16.dp))
@@ -516,7 +518,7 @@ fun AboutScreen(
         Spacer(Modifier.height(48.dp))
         
         Text(
-            text = stringResource(R.string.stands_with_indonesia),
+            text = stringResource(R.string.stands_with_palestine),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
