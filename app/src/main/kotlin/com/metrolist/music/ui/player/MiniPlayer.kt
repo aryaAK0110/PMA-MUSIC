@@ -111,6 +111,7 @@ import com.metrolist.music.ui.component.Icon as MIcon
 import androidx.compose.ui.draw.blur
 import com.metrolist.music.constants.MiniPlayerBackgroundStyle
 import com.metrolist.music.constants.MiniPlayerBackgroundStyleKey
+import com.metrolist.music.constants.AppearanceStyleKey
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
@@ -286,6 +287,7 @@ private fun NewMiniPlayer(
     }
 
     // Memoize colors
+    val appearanceStyle by rememberPreference(AppearanceStyleKey, "EDITORIAL")
     val backgroundColor = when (miniPlayerBackground) {
         MiniPlayerBackgroundStyle.DEFAULT    -> MaterialTheme.colorScheme.surfaceContainer
         MiniPlayerBackgroundStyle.TRANSPARENT -> Color.Black.copy(alpha = 0.25f)
@@ -380,7 +382,7 @@ private fun NewMiniPlayer(
                     .height(64.dp)
                     .offset { IntOffset(offsetXAnimatable.value.roundToInt(), 0) }
                     .clip(RoundedCornerShape(32.dp))
-                    .background(color = backgroundColor)
+                    .background(color = if (appearanceStyle == "LIQUID") backgroundColor.copy(alpha = 0.55f) else backgroundColor)
                     .border(1.dp, outlineColor.copy(alpha = 0.3f), RoundedCornerShape(32.dp))
                     .clickable(
                         interactionSource = interactionSource,
