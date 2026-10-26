@@ -134,6 +134,9 @@ import com.metrolist.innertube.YouTube
 import com.metrolist.innertube.models.SongItem
 import com.metrolist.innertube.models.WatchEndpoint
 import com.metrolist.music.constants.AppBarHeight
+import com.metrolist.music.constants.AppearanceStyleKey
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.ui.input.pointer.pointerInput
 import com.metrolist.music.constants.AppLanguageKey
 import com.metrolist.music.constants.CheckForUpdatesKey
 import com.metrolist.music.constants.DarkModeKey
@@ -752,6 +755,7 @@ class MainActivity : FragmentActivity() {
                 }
                 val (forceBottomNav) = rememberPreference(ForceBottomNavBarKey, defaultValue = false)
                 val (slimNav) = rememberPreference(SlimNavBarKey, defaultValue = false)
+                val (appearanceStyle) = rememberPreference(AppearanceStyleKey, defaultValue = "EDITORIAL")
                 val (useNewMiniPlayerDesign) = rememberPreference(UseNewMiniPlayerDesignKey, defaultValue = true)
                 val (defaultOpenTabInt) = rememberPreference(DefaultOpenTabKey, defaultValue = NavigationTab.HOME.name)
                 val defaultOpenTab = remember(defaultOpenTabInt) {
@@ -1222,6 +1226,18 @@ class MainActivity : FragmentActivity() {
                                         modifier =
                                             Modifier
                                                 .align(Alignment.BottomCenter)
+                                                .pointerInput(appearanceStyle, navigationItems, currentRoute) {
+                                                    var totalDrag = 0f
+                                                    detectHorizontalDragGestures(
+                                                    onDragStart = { totalDrag = 0f },
+                                                    onHorizontalDrag = { _, dragAmount -> totalDrag += dragAmount },
+                                                    onDragEnd = {
+                                                        val idx = navigationItems.indexOfFirst { it.route == currentRoute }
+                                                        val target = if (appearanceStyle != "LIQUID" || idx == -1) -1 else if (totalDrag < -80f && idx < navigationItems.lastIndex) idx + 1 else if (totalDrag > 80f && idx > 0) idx - 1 else -1
+                                                        if (target != -1) onNavItemClick(navigationItems[target], false)
+                                                    },
+                                                ) 
+                                            }
                                                 .height(bottomInset + navPadding)
                                                 // Use graphicsLayer instead of offset to avoid recomposition
                                                 // graphicsLayer runs during draw phase, not composition phase
